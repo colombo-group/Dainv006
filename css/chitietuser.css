@@ -1,0 +1,138 @@
+
+.prd-only{
+	width:720px;
+	height: 500px;
+	margin-right:20px;
+	margin: auto;
+	margin-top: 60px;
+	}
+
+h2 {
+    margin-top: auto;
+    margin-left: auto;
+    color: rebeccapurple;
+}
+
+h1 {
+    color: #b5842a;
+    padding: 10px;
+}
+	
+.prd-img{
+	float:left;
+	width:340px;
+	height:auto;
+	text-align:center;
+	padding-top: 20px;
+	}
+
+.clear input {
+    border: 1px solid white;
+    margin: 15px;
+    margin-left: 430px;
+    font-size: 23px;
+    padding: 5px 20px;
+    background: lightblue;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.clear input:hover {
+    background: gray;
+}
+
+
+	
+.prd-intro{
+	float:right;
+	width:380px;
+	height:auto;
+	}
+	
+.prd-intro h3{
+	width:380px;
+	height:35px;
+	line-height:35px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:15px;
+	font-weight:bold;
+	color:#000;
+	text-transform: uppercase;
+	}		
+	
+.prd-intro p{
+	width:380px;
+	height:auto;
+	font-size:14px;
+	border-bottom:1px dashed #CCC;
+	}
+
+.prd-intro p span{
+	font-weight:bold;
+	color:#C40000;
+	}
+
+.prd-intro table{
+	width:100%;
+	height:auto;
+	margin-bottom:20px;
+	}
+
+.prd-intro table tr{
+	width:100%;
+	height:auto;
+	}
+	
+.prd-intro table tr td{
+	height:auto;
+	padding:5px 0px;
+	text-transform: capitalize;
+	font-size: 15px;
+	}
+	
+.prd-intro table tr td span{
+	font-weight:bold;
+	}		
+
+.prd-intro p.add-cart{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:15px;
+	font-weight:bold;
+	text-transform:uppercase;
+	border:none;
+	}
+
+.prd-intro p.add-cart a{
+	text-decoration:none;
+	}
+
+.prd-intro p.add-cart a span{
+	width:auto;
+	height:auto;
+	background-image:-moz-linear-gradient(center bottom , #C40000 36%, #D64C4A 58%);
+	padding:10px;
+	border-radius: 6px 6px 6px 6px;
+	color: red;
+	
+	} 
+
+p.add-cart span {
+     color: red; 
+    background: red;
+    
+}
+
+p.add-cart span:hover {
+    background: lightblue;
+    color: red;
+}
+
+.prd-details{
+	clear:both;
+	width:720px;
+	height:auto;
+	line-height:22px;
+	border-top:1px solid #CCC;
+	margin:20px 0px;
+	padding:10px 0px;
+	}

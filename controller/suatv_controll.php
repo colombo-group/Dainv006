@@ -48,11 +48,14 @@ if($row2==0)
               $uploaded_file=move_uploaded_file($tmp_name, 'img/'.$anh);
               if(isset($_SESSION['user']))
               {
+                $repass=md5($repass);
               $sql1="UPDATE user SET email='$email',username='$username', password='$repass',level=$level,fullname='$name',gender='$gioitinh',birthday='$ngaysinh',phone='$phone',avatar='$anh' WHERE id=$idUser";
             }
             else{
-                  $sql1="UPDATE user SET email='$email',username='$username' , password='$repass',level=$level1,fullname='$name',gender='$gioitinh',birthday='$ngaysinh',phone='$phone',avatar='$anh' WHERE id=$idUser";
+               $repass=md5($repass);
+                  $sql1="UPDATE user SET email='$email',username='$username' , password=$repass',level=$level1,fullname='$name',gender='$gioitinh',birthday='$ngaysinh',phone='$phone',avatar='$anh' WHERE id=$idUser";
             }
+            // echo $repass;
              $query1=mysql_query($sql1);
              header('location:index.php?id='.$id);
 

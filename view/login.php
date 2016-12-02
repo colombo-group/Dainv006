@@ -1,6 +1,10 @@
 <?php session_start();
 	include('../lib/database.php');
 	include('../lib/helper.php');
+	if(isset($_COOKIE['user2']))
+	{
+		header('location:../index.php');
+	}
 	if(isset($_SESSION['user'])&&isset($_SESSION['pass'])||isset($_SESSION['user1'])&&isset($_SESSION['pass1'])||isset($_SESSION['user1'])&&isset($_SESSION['pass1']))
 	{
 		header('location:../index.php?id='.$id);
@@ -19,6 +23,7 @@
 	
 <form method="post">
 	<div id="form-login">
+		
 	<h2> Đăng nhập vào hệ thống</h2>
     <ul>
     	<?php if(isset($error)){show_error($error, 'err');} ?>

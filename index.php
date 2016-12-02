@@ -1,7 +1,7 @@
 <?php session_start();
 include('lib/database.php'); 
 include('lib/helper.php');
-// echo $_SESSION['user1']
+
 if(isset($_GET['id']))
 {
 	$id=$_GET['id'];
@@ -17,8 +17,9 @@ if(isset($_GET['id']))
 <body>
 	<div class="big">
 	<div class="nav">
-		<h3><a href="index.php?id=<?php if(isset($id)){
-			echo $id;
+
+		<h3><a href="index.php<?php if(isset($id)){
+			echo'?id='.$id;
 		} ?>">LOGO</a></h3>
 		<div class="link">
 		<?php if(isset($_SESSION['user'])&&isset($_SESSION['pass'])){echo'Xin chào: '.$_SESSION['user'];}else if(isset($_SESSION['user1'])){echo"Xin chào: <a href=''>".$_SESSION['user1']."</a>"; }else if(isset($_SESSION['user2'])){echo"Xin chào: <a href='index'>".$_SESSION['user2']."</a>";}
@@ -29,6 +30,7 @@ if(isset($_GET['id']))
 	</div>
 	<hr>
 	<!-- main -->
+	
 	<?php 
 	if(isset($_GET['page']))
 	{
@@ -44,6 +46,10 @@ if(isset($_GET['id']))
 				include('controller/suatv_controll.php');
 				include('view/suatv.php');
 				break;
+			case 'xoa':
+				include('controller/xoathanhvien.php');
+			// case 'danhsachtv':
+			// 	include('view/danhsachuser.php');
 		
 		}
 	}else{

@@ -38,11 +38,13 @@ if(isset($_POST['submit']))
       {
         if(isset($email)&&isset($repass)&&isset($name)&&isset($gren)&&isset($ngaysinh)&&isset($phone)&&isset($anh)&&isset($nguoiGT))
         {
+          $repass=md5($repass);
               $uploaded_file=move_uploaded_file($tmp_name, 'img/'.$anh);
               $sql1="INSERT INTO user(email,username,password,level,fullname,gender,birthday,phone,avatar,nguoiGT) VALUES('$email','$username','$repass',3,'$name','$gren','$ngaysinh','$phone','$anh','$nguoiGT')";
-             $query1=mysql_query($sql1);
-             // echo $sql1;
-              header('location:index.php');
+              echo $sql1;
+             // $query1=mysql_query($sql1);
+             // // echo $sql1;
+             //  header('location:index.php');
         }
       }
       else{

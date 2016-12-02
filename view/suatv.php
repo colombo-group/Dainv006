@@ -46,7 +46,7 @@
                                 </tr>
                                   <tr>
                                     <td><span>Nhập lại mật khẩu</span></td>
-                                    <td><input type="text" name="repass" value="<?php if(isset($_POST['repass'])){echo $_POST['repass'];}else{ echo $row['password']; }?>"required> <?php if(isset($erro)){echo $erro;} ?></td>
+                                    <td><input type="password" name="repass" value="<?php if(isset($_POST['repass'])){echo $_POST['repass'];}else{ echo $row['password']; }?>"required> <?php if(isset($erro)){echo $erro;} ?></td>
                                 </tr>
                                 <tr>
                                     <td><span>Ngày sinh</span></td>

@@ -1,4 +1,5 @@
 <?php 
+
 $id=$_GET['id'];
 $idUser=$_GET['iduser'];
 // echo $idUser;
@@ -53,7 +54,7 @@ if($row2==0)
             }
             else{
                $repass=md5($repass);
-                  $sql1="UPDATE user SET email='$email',username='$username' , password=$repass',level=$level1,fullname='$name',gender='$gioitinh',birthday='$ngaysinh',phone='$phone',avatar='$anh' WHERE id=$idUser";
+                  $sql1="UPDATE user SET email='$email',username='$username' , password='$repass',level=$level1,fullname='$name',gender='$gioitinh',birthday='$ngaysinh',phone='$phone',avatar='$anh' WHERE id=$idUser";
             }
             // echo $repass;
              $query1=mysql_query($sql1);

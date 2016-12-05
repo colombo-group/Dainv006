@@ -38,7 +38,7 @@
                 </tr>
                 <tr>
 
-                    <td><label>Người giới thiệu</label><br /><input type="email" name="nguoiGT" value="<?php if(isset($_POST['nguoiGT'])){echo $_POST['nguoiGT'];} ?>" required/><?php if(isset($erroNguoiGT)){echo $erroNguoiGT;} ?></td>
+                    <td><label>Người giới thiệu</label><br /><input type="email" name="nguoiGT" value="<?php if(isset($_POST['nguoiGT'])){echo $_POST['nguoiGT'];} ?>" /><?php if(isset($erroNguoiGT)){echo $erroNguoiGT;} ?></td>
                 </tr>
 
                

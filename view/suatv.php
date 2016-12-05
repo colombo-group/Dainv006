@@ -1,4 +1,9 @@
-
+<?php 
+if(isset($_SESSION['user'])||isset($_SESSION['user1'])||isset($_SESSION['user2']))
+{
+  
+    
+?>
 	<link rel="stylesheet" href="css/chitietuser.css">
 
 	<!-- main -->
@@ -25,16 +30,16 @@
                                     <td><span>Tên đăng nhập</span></td>
                                     <td><input type="text" name="username" value="<?php if(isset($_POST['username'])){echo $_POST['username'];}else{ echo $row['username']; }?>"required> </td>
                                 </tr>
-                            <?php if(isset($_SESSION['user'])) {
-                                echo" <tr>
-                                    <td width='30%''><span>Chức danh:</span></td>
-                                    <td><select name='level'>
-                                       
-                                        <option value='2'>admod</option>
-                                        <option value='3'>user</option>
-                                    </select></td>
-                                </tr>";
-                            }?>
+                                <?php if(isset($_SESSION['user'])) {
+                                    echo" <tr>
+                                        <td width='30%''><span>Chức danh:</span></td>
+                                        <td><select name='level'>
+                                           
+                                            <option value='2'>admod</option>
+                                            <option value='3'>user</option>
+                                        </select></td>
+                                    </tr>";
+                                }?>
                                
                                 <tr>
                                     <td><span>Giới tính</span></td>
@@ -42,11 +47,11 @@
                                 </tr>
                                   <tr>
                                     <td><span>Mật khẩu</span></td>
-                                    <td><input type="password" name="pass" value="<?php if(isset($_POST['pass'])){echo $_POST['pass'];}else{ echo $row['password']; }?>"required> </td>
+                                    <td><input type="password" name="pass" value="<?php if(isset($_POST['pass'])){echo $_POST['pass'];} ?>"required> </td>
                                 </tr>
                                   <tr>
                                     <td><span>Nhập lại mật khẩu</span></td>
-                                    <td><input type="password" name="repass" value="<?php if(isset($_POST['repass'])){echo $_POST['repass'];}else{ echo $row['password']; }?>"required> <?php if(isset($erro)){echo $erro;} ?></td>
+                                    <td><input type="password" name="repass" value="<?php if(isset($_POST['repass'])){echo $_POST['repass'];}?>"required title="bạn chưa nhập mật khẩu"> <?php if(isset($erro)){echo $erro;} ?></td>
                                 </tr>
                                 <tr>
                                     <td><span>Ngày sinh</span></td>
@@ -73,5 +78,12 @@
         var anh=document.getElementById("anh").value;
         console.log("abc"+anh);
         </script>
+        <?php 
+
+        }else{
+            header('location:index.php?page=login');
+        }
+
+       ?>
 
 

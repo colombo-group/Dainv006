@@ -1,26 +1,17 @@
-<?php session_start();
-	include('../lib/database.php');
-	include('../lib/helper.php');
-	if(isset($_COOKIE['user2']))
-	{
-		header('location:../index.php');
-	}
+<?php 
+
 	if(isset($_SESSION['user'])&&isset($_SESSION['pass'])||isset($_SESSION['user1'])&&isset($_SESSION['pass1'])||isset($_SESSION['user1'])&&isset($_SESSION['pass1']))
 	{
-		header('location:../index.php?id='.$id);
+		header('location:index.php?id='.$id);
 	}
-	include('../controller/login_controll.php')	 ?>
+	if(isset($_COOKIE['user2']))
+	{
+		header('location:index.php');
+	}
+	include('controller/login_controll.php');	 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>lOGIN</title>
-	<link rel="stylesheet" href="../css/login.css">
-</head>
-<body>
 
-	
+	<link rel="stylesheet" href="css/login.css">
 <form method="post">
 	<div id="form-login">
 		
@@ -32,10 +23,10 @@
         <li><label>Mật khẩu</label><input type="password" name="pass"  required/></li>
        <?php if(isset($error)){show_error($error, 'pass');} ?>
         <li><input type="submit" name="submit" value="Đăng nhập" /></input>
-        	<button><a href="../index.php?page=dangky">Dang ky</a></button></li>
+        	<button><a href="index.php?page=dangky">Dang ky</a></button></li>
     </ul>
 	</div>
 </form>
 </div>
-</body>
-</html>
+<!-- </body>
+</html> -->

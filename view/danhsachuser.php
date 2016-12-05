@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/danhsachuser.css">
 
 <?php
+
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 if(isset($_GET['id']))
 {
@@ -22,8 +23,9 @@ $show=input_post('show');
 // ec
 }else if(isset($_GET['show'])) {
 	$show=$_GET['show'];
-}else{
-	$show=3;
+}
+else{
+	$show=10;
 }
 if(isset($_GET['p']))
 {
@@ -80,10 +82,10 @@ for($i=1;$i<=$total_page;$i++)
 
  <form class="show" action="<?php echo $link ?>" method="post">
 <select name="show">
-	<option value="10">10</option>
-	<option value="5">5</option>
-	<option value="20">20</option>
-	<option value="50">50</option>
+	<!-- <option <?php if($show==5){echo "selected";} ?> value="5">5</option> -->
+	<option <?php if($show==10){echo "selected";} ?> value="10">10</option>
+	<option <?php if($show==20){echo "selected";} ?> value="20">20</option>
+	<option <?php if($show==50){echo "selected";} ?> value="50">50</option>
 	<input type="submit" name="submit" value="Show">
 </select></form>
 <?php if(isset($_COOKIE['user1'])){
@@ -115,7 +117,7 @@ for($i=1;$i<=$total_page;$i++)
                  ?>
 		<tr>
 			<td><?php echo $row['id']; ?></td>
-			<td><a href="index.php?id=<?php echo $id; ?>&page=chitietuser&iduser=<?php echo $row['id'] ?>"><img src="img/<?php echo $row['avatar'];?>" alt=""></a></td>
+			<td><a href="index.php?<?php if(isset($id)) {echo 'id='. $id;} ?>&page=chitietuser&iduser=<?php echo $row['id'] ?>"><img src="img/<?php echo $row['avatar'];?>" alt=""></a></td>
 			<td><?php echo $row['fullname']; ?></td>
 			<td><?php echo $row['gender']; ?></td>
 			<td><?php echo $row['email']; ?></td>
@@ -124,7 +126,7 @@ for($i=1;$i<=$total_page;$i++)
 			<?php if(isset($_SESSION['user'])||isset($_SESSION['user1'])&&$row['level']==3){
                   echo " <td><a href='index.php?id=".$id."&page=suatv&iduser=".$iduser." '	>Sua</a></td>";
 					  echo "<td><a onclick='return xoasanpham();'' href='index.php?id=".$id."&page=xoa&iduser=".$iduser."'>Xoa</a></td>";
-              }else if(isset($id)&&$id==$row['id']) {
+              }else if($id==$row['id']) {
               	echo " <td><a href='index.php?id=".$id."&page=suatv&iduser=".$iduser." '	>Sua</a></td>";
               }?>
 			

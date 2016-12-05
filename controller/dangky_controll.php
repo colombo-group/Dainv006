@@ -13,9 +13,13 @@ if(isset($_POST['submit']))
     if($_FILES['anh']['name']=='')
     {
         $erro_anh="<span style='color:red'>(*)</span>";
-    }else{
+    }else if($_FILES['anh']['type'] == "image/jpeg"
+        || $_FILES['anh']['type'] == "image/png"
+        || $_FILES['anh']['type'] == "image/gif"){
         $anh=$_FILES['anh']['name'];
         $tmp_name=$_FILES['anh']['tmp_name'];
+    }else{
+      $erro_anh="<span style='color:red'>(*)</span>";
     }
     $sql2="SELECT *FROM user WHERE email='$nguoiGT'";
 
@@ -34,23 +38,29 @@ if(isset($_POST['submit']))
     $row=mysql_num_rows($query);
     if($row==0)
     {
-      if($row2!=0)
-      {
+      
         if(isset($email)&&isset($repass)&&isset($name)&&isset($gren)&&isset($ngaysinh)&&isset($phone)&&isset($anh)&&isset($nguoiGT))
         {
+            
           $repass=md5($repass);
               $uploaded_file=move_uploaded_file($tmp_name, 'img/'.$anh);
               $sql1="INSERT INTO user(email,username,password,level,fullname,gender,birthday,phone,avatar,nguoiGT) VALUES('$email','$username','$repass',3,'$name','$gren','$ngaysinh','$phone','$anh','$nguoiGT')";
               echo $sql1;
-             // $query1=mysql_query($sql1);
+             $query1=mysql_query($sql1);
+             
+         
              // // echo $sql1;
-             //  header('location:index.php');
+               header('location:index.php');
+        }else if(isset($email)&&isset($repass)&&isset($name)&&isset($gren)&&isset($ngaysinh)&&isset($phone)&&isset($anh)){
+          $repass=md5($repass);
+              $uploaded_file=move_uploaded_file($tmp_name, 'img/'.$anh);
+              $sql1="INSERT INTO user(email,username,password,level,fullname,gender,birthday,phone,avatar,nguoiGT) VALUES('$email','$username','$repass',3,'$name','$gren','$ngaysinh','$phone','$anh','')";
+              echo $sql1;
+             $query1=mysql_query($sql1);
+             header('location:index.php');
         }
-      }
-      else{
-        $erroNguoiGT="<span style='color:red'>Không có người này</span>";
-      }
-    }else{
+      
+    } else{
         $errotk="<span style='color:red'>Tài khoản đã tồn tại</span>";
     }
     }
